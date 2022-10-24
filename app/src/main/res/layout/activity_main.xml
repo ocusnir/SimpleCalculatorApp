@@ -1,55 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCFCFC"
     tools:context=".MainActivity">
 
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/solution"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="10dp"
-        android:paddingTop="10dp"
-        android:background="#FCFCFC"
-        android:orientation="vertical">
+        android:layout_above="@+id/buttons_layout"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="250dp"
+        android:background="@null"
+        android:scrollbars="vertical"
+        android:paddingVertical="30dp"
+        android:fontFamily="@font/roboto_light"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/dark_gray"
+        android:textDirection="ltr"
+        android:textSize="35sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@null"
-            android:textSize="25sp"
-            android:textColor="@color/dark_gray"
-            android:textDirection="rtl"
-            android:text="0"
-            android:scrollbarAlwaysDrawVerticalTrack="true"/>
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="209dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="18dp"
+        android:textColor="@color/low_gray"
+        android:fontFamily="@font/roboto_light"
+        android:textAlignment="textEnd"
+        android:textDirection="ltr"
+        android:textSize="25sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/dark_gray"
-            android:layout_gravity="right"
-            android:textDirection="rtl"
-            android:layout_marginTop="75dp"
-            android:text="0" />
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            app:cornerRadius="36dp"
-            android:clickable="true"
-            android:layout_gravity="right"
-            android:stateListAnimator="@null"
-            android:backgroundTint="@null"
-            android:background="@drawable/ic_launcher_foreground"
-            android:id="@+id/button_clear_arrow"
-            />
+    <ImageButton
+        android:id="@+id/button_clear"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_above="@+id/line"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/clear_icon"
+        android:clickable="true"
+        android:paddingEnd="12dp"
+        android:stateListAnimator="@null"
+        app:cornerRadius="36dp" />
 
-            <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/line"
+        android:backgroundTint="#3CBABABA"
+        app:cardElevation="0dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_above="@+id/buttons_layout"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="#FCFCFC"
+                android:layout_alignParentBottom="true"
                 android:id="@+id/buttons_layout">
 
                 <LinearLayout
@@ -68,10 +90,10 @@
                             android:textSize="27sp"
                             android:backgroundTint="#F8F8F8"
                             android:textColor="#EA3A45"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="@font/roboto"
                             android:stateListAnimator="@null"
                             android:id="@+id/button_c"
-                            android:text="C"
+                            android:text="c"
                             />
                         <com.google.android.material.button.MaterialButton
                             android:layout_width="72dp"
@@ -84,7 +106,7 @@
                             android:textColor="#68B31A"
                             android:stateListAnimator="@null"
                             android:backgroundTint="#F8F8F8"
-                            android:fontFamily="sans-serif"
+                            android:fontFamily="@font/roboto_medium"
                             android:id="@+id/button_open_and_close_brackets"
                             android:text="( )"
                             />
@@ -98,25 +120,26 @@
                             android:textSize="22sp"
                             android:textColor="#68B31A"
                             android:stateListAnimator="@null"
+                            android:fontFamily="@font/roboto_medium"
                             android:backgroundTint="#F8F8F8"
                             android:id="@+id/button_percent"
                             android:text="%"
                             />
-                        <com.google.android.material.button.MaterialButton
-                            android:layout_width="72dp"
-                            android:layout_height="72dp"
-                            app:cornerRadius="36dp"
-                            android:clickable="true"
-                            android:layout_margin="12dp"
-                            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                            android:textSize="32sp"
-                            android:fontFamily="sans-serif-thin"
-                            android:textColor="#68B31A"
-                            android:stateListAnimator="@null"
-                            android:backgroundTint="#F8F8F8"
-                            android:id="@+id/button_devide"
-                            android:text="÷"
-                            />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_devide"
+                        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="12dp"
+                        android:backgroundTint="#F8F8F8"
+                        android:clickable="true"
+                        android:fontFamily="@font/roboto_light"
+                        android:stateListAnimator="@null"
+                        android:text="÷"
+                        android:textColor="#68B31A"
+                        android:textSize="32sp"
+                        app:cornerRadius="36dp" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -125,6 +148,20 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_7"
+                        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="12dp"
+                        android:backgroundTint="#F8F8F8"
+                        android:clickable="true"
+                        android:fontFamily="@font/roboto"
+                        android:stateListAnimator="@null"
+                        android:text="7"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="29sp"
+                        app:cornerRadius="36dp" />
                         <com.google.android.material.button.MaterialButton
                             android:layout_width="72dp"
                             android:layout_height="72dp"
@@ -133,22 +170,8 @@
                             android:layout_margin="12dp"
                             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                             android:textSize="29sp"
-                            android:id="@+id/button_7"
-                            android:fontFamily="sans-serif-smallcaps"
                             android:textColor="@color/dark_gray"
-                            android:stateListAnimator="@null"
-                            android:backgroundTint="#F8F8F8"
-                            android:text="7"
-                            />
-                        <com.google.android.material.button.MaterialButton
-                            android:layout_width="72dp"
-                            android:layout_height="72dp"
-                            app:cornerRadius="36dp"
-                            android:clickable="true"
-                            android:layout_margin="12dp"
-                            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                            android:textSize="29sp"
-                            android:textColor="@color/dark_gray"
+                            android:fontFamily="@font/roboto"
                             android:backgroundTint="#F8F8F8"
                             android:stateListAnimator="@null"
                             android:id="@+id/button_8"
@@ -164,6 +187,7 @@
                             android:textSize="29sp"
                             android:stateListAnimator="@null"
                             android:textColor="@color/dark_gray"
+                            android:fontFamily="@font/roboto"
                             android:backgroundTint="#F8F8F8"
                             android:id="@+id/button_9"
                             android:text="9"
@@ -178,7 +202,7 @@
                             android:textSize="32sp"
                             android:stateListAnimator="@null"
                             android:textColor="#68B31A"
-                            android:fontFamily="sans-serif-thin"
+                            android:fontFamily="@font/roboto_light"
                             android:backgroundTint="#F8F8F8"
                             android:textAlignment="center"
                             android:id="@+id/button_multiply"
@@ -203,6 +227,7 @@
                             android:stateListAnimator="@null"
                             android:id="@+id/button_4"
                             android:textColor="@color/dark_gray"
+                            android:fontFamily="@font/roboto"
                             android:backgroundTint="#F8F8F8"
                             android:text="4"
                             />
@@ -216,6 +241,7 @@
                             android:textSize="29sp"
                             android:stateListAnimator="@null"
                             android:textColor="@color/dark_gray"
+                            android:fontFamily="@font/roboto"
                             android:backgroundTint="#F8F8F8"
                             android:id="@+id/button_5"
                             android:text="5"
@@ -230,6 +256,7 @@
                             android:textSize="29sp"
                             android:stateListAnimator="@null"
                             android:textColor="@color/dark_gray"
+                            android:fontFamily="@font/roboto"
                             android:backgroundTint="#F8F8F8"
                             android:id="@+id/button_6"
                             android:text="6"
@@ -244,7 +271,8 @@
                             android:textSize="32sp"
                             android:stateListAnimator="@null"
                             android:textColor="#68B31A"
-                            android:fontFamily="sans-serif-thin"
+                            android:gravity="bottom|center"
+                            android:fontFamily="@font/roboto_light"
                             android:backgroundTint="#F8F8F8"
                             android:textAlignment="center"
                             android:id="@+id/button_minus"
@@ -269,6 +297,7 @@
                             android:stateListAnimator="@null"
                             android:id="@+id/button_1"
                             android:textColor="@color/dark_gray"
+                            android:fontFamily="@font/roboto"
                             android:backgroundTint="#F8F8F8"
                             android:text="1"
                             />
@@ -283,6 +312,7 @@
                             android:stateListAnimator="@null"
                             android:textColor="@color/dark_gray"
                             android:backgroundTint="#F8F8F8"
+                            android:fontFamily="@font/roboto"
                             android:id="@+id/button_2"
                             android:text="2"
                             />
@@ -297,6 +327,7 @@
                             android:stateListAnimator="@null"
                             android:textColor="@color/dark_gray"
                             android:backgroundTint="#F8F8F8"
+                            android:fontFamily="@font/roboto"
                             android:id="@+id/button_3"
                             android:text="3"
                             />
@@ -310,7 +341,8 @@
                             android:textSize="32sp"
                             android:stateListAnimator="@null"
                             android:textColor="#68B31A"
-                            android:fontFamily="sans-serif-thin"
+                            android:gravity="bottom|center"
+                            android:fontFamily="@font/roboto_light"
                             android:backgroundTint="#F8F8F8"
                             android:textAlignment="center"
                             android:id="@+id/button_plus"
@@ -331,10 +363,11 @@
                             android:clickable="true"
                             android:layout_margin="12dp"
                             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:id="@+id/button_plus_minus"
                             android:textColor="@color/dark_gray"
                             android:stateListAnimator="@null"
+                            android:fontFamily="@font/roboto"
                             android:backgroundTint="#F8F8F8"
                             android:text="+/-"
                             />
@@ -349,6 +382,7 @@
                             android:stateListAnimator="@null"
                             android:textColor="@color/dark_gray"
                             android:backgroundTint="#F8F8F8"
+                            android:fontFamily="@font/roboto"
                             android:id="@+id/button_0"
                             android:text="0"
                             />
@@ -363,30 +397,33 @@
                             android:textColor="@color/dark_gray"
                             android:stateListAnimator="@null"
                             android:backgroundTint="#F8F8F8"
+                            android:fontFamily="@font/roboto"
                             android:id="@+id/button_dot"
                             android:text="."
                             />
-                        <com.google.android.material.button.MaterialButton
-                            android:layout_width="72dp"
-                            android:layout_height="72dp"
-                            app:cornerRadius="36dp"
-                            android:clickable="true"
-                            android:layout_margin="12dp"
-                            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                            android:textSize="32sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="sans-serif-thin"
-                            android:stateListAnimator="@null"
-                            android:backgroundTint="#68B31A"
-                            android:textAlignment="center"
-                            android:id="@+id/button_equal"
-                            android:text="="
-                            />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_equal"
+                        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="12dp"
+                        android:backgroundTint="#68B31A"
+                        android:clickable="true"
+                        android:fontFamily="@font/roboto_light"
+                        android:stateListAnimator="@null"
+                        android:text="="
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        app:cornerRadius="36dp" />
 
                 </LinearLayout>
 
-            </LinearLayout>
+
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>
