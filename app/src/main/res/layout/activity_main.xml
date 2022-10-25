@@ -50,6 +50,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/clear_icon"
+        android:focusable="true"
         android:clickable="true"
         android:paddingEnd="12dp"
         android:stateListAnimator="@null"
