@@ -155,7 +155,7 @@ try {
 
                     return finalResult;
                 }
-                return finalResult;
+                return "0";
 
             }catch(Exception e){
                 return "Error";
